@@ -16,7 +16,12 @@ namespace DevExpressTraining
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainForm_OnLoad(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddTodoButton_OnClick(object sender, EventArgs e)
         {
 
         }
