@@ -36,7 +36,7 @@ namespace DevExpressTraining
                         Label = header
                     };
 
-                    todoItem.Width = TodoLayoutPanel.Width - TodoLayoutPanel.Margin.Horizontal;
+                    todoItem.Width = TodoLayoutPanel.Width;
                     todoItem.DeleteClicked += TodoItem_DeleteClicked;
                     TodoLayoutPanel.Controls.Add(todoItem);
                 }

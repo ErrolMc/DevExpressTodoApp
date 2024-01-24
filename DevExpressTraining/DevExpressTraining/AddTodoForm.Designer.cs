@@ -46,7 +46,7 @@ namespace DevExpressTraining
             this.HeaderEdit.Size = new System.Drawing.Size(339, 20);
             this.HeaderEdit.TabIndex = 0;
             // 
-            // BodyEdit
+            // NotesEdit
             // 
             this.NotesEdit.Location = new System.Drawing.Point(76, 77);
             this.NotesEdit.Name = "NotesEdit";
@@ -55,17 +55,25 @@ namespace DevExpressTraining
             // 
             // HeaderLabel
             // 
-            this.HeaderLabel.Location = new System.Drawing.Point(12, 31);
+            this.HeaderLabel.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.HeaderLabel.Appearance.ForeColor = System.Drawing.Color.White;
+            this.HeaderLabel.Appearance.Options.UseFont = true;
+            this.HeaderLabel.Appearance.Options.UseForeColor = true;
+            this.HeaderLabel.Location = new System.Drawing.Point(12, 28);
             this.HeaderLabel.Name = "HeaderLabel";
-            this.HeaderLabel.Size = new System.Drawing.Size(39, 13);
+            this.HeaderLabel.Size = new System.Drawing.Size(48, 17);
             this.HeaderLabel.TabIndex = 2;
             this.HeaderLabel.Text = "Header:";
             // 
-            // BodyLabel
+            // NotesLabel
             // 
-            this.NotesLabel.Location = new System.Drawing.Point(23, 78);
+            this.NotesLabel.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.7F, System.Drawing.FontStyle.Bold);
+            this.NotesLabel.Appearance.ForeColor = System.Drawing.Color.White;
+            this.NotesLabel.Appearance.Options.UseFont = true;
+            this.NotesLabel.Appearance.Options.UseForeColor = true;
+            this.NotesLabel.Location = new System.Drawing.Point(20, 73);
             this.NotesLabel.Name = "NotesLabel";
-            this.NotesLabel.Size = new System.Drawing.Size(28, 13);
+            this.NotesLabel.Size = new System.Drawing.Size(40, 17);
             this.NotesLabel.TabIndex = 3;
             this.NotesLabel.Text = "Notes:";
             // 
@@ -89,16 +97,27 @@ namespace DevExpressTraining
             // 
             // AddTodoForm
             // 
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 240);
+            this.ClientSize = new System.Drawing.Size(422, 222);
             this.Controls.Add(this.CancelTodoButton);
             this.Controls.Add(this.AddTodoButton);
             this.Controls.Add(this.NotesLabel);
             this.Controls.Add(this.HeaderLabel);
             this.Controls.Add(this.NotesEdit);
             this.Controls.Add(this.HeaderEdit);
+            this.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AddTodoForm";
+            this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add New Todo";
             ((System.ComponentModel.ISupportInitialize)(this.HeaderEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NotesEdit.Properties)).EndInit();

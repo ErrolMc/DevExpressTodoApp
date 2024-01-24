@@ -38,31 +38,36 @@ namespace DevExpressTraining
             // 
             // AddTodoButton
             // 
-            this.AddTodoButton.Location = new System.Drawing.Point(227, 21);
+            this.AddTodoButton.Location = new System.Drawing.Point(223, 15);
             this.AddTodoButton.Name = "AddTodoButton";
             this.AddTodoButton.Size = new System.Drawing.Size(75, 23);
             this.AddTodoButton.TabIndex = 1;
-            this.AddTodoButton.Text = "Add ToDo";
+            this.AddTodoButton.Text = "Add Todo";
             this.AddTodoButton.Click += new System.EventHandler(this.AddTodoButton_OnClick);
             // 
             // TodoLayoutPanel
             // 
-            this.TodoLayoutPanel.Location = new System.Drawing.Point(12, 61);
+            this.TodoLayoutPanel.Location = new System.Drawing.Point(16, 51);
             this.TodoLayoutPanel.Name = "TodoLayoutPanel";
-            this.TodoLayoutPanel.Size = new System.Drawing.Size(290, 466);
+            this.TodoLayoutPanel.Size = new System.Drawing.Size(284, 456);
             this.TodoLayoutPanel.TabIndex = 2;
             // 
             // MainForm
             // 
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(314, 539);
+            this.ClientSize = new System.Drawing.Size(316, 523);
             this.Controls.Add(this.TodoLayoutPanel);
             this.Controls.Add(this.AddTodoButton);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "ToDo Manager";
+            this.ShowIcon = false;
+            this.Text = "Todo Manager";
             this.Load += new System.EventHandler(this.MainForm_OnLoad);
             ((System.ComponentModel.ISupportInitialize)(this.BehaviorManager)).EndInit();
             this.ResumeLayout(false);

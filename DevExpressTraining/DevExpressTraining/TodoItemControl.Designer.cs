@@ -39,18 +39,22 @@ namespace DevExpressTraining
             // 
             this.LabelText.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.LabelText.Appearance.Font = new System.Drawing.Font("Segoe UI", 9.7F);
+            this.LabelText.Appearance.ForeColor = System.Drawing.Color.White;
+            this.LabelText.Appearance.Options.UseFont = true;
+            this.LabelText.Appearance.Options.UseForeColor = true;
             this.LabelText.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.LabelText.Location = new System.Drawing.Point(37, 14);
-            this.LabelText.MaximumSize = new System.Drawing.Size(260, 0);
+            this.LabelText.Location = new System.Drawing.Point(37, 12);
+            this.LabelText.MaximumSize = new System.Drawing.Size(300, 0);
             this.LabelText.Name = "LabelText";
-            this.LabelText.Size = new System.Drawing.Size(260, 13);
+            this.LabelText.Size = new System.Drawing.Size(280, 17);
             this.LabelText.TabIndex = 0;
             this.LabelText.Text = "blank";
             // 
             // DeleteButton
             // 
             this.DeleteButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteButton.Location = new System.Drawing.Point(305, 9);
+            this.DeleteButton.Location = new System.Drawing.Point(333, 9);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(22, 23);
             this.DeleteButton.TabIndex = 1;
@@ -68,13 +72,17 @@ namespace DevExpressTraining
             // 
             // TodoItemControl
             // 
+            this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.CompletedCheckEdit);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.LabelText);
+            this.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
+            this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "TodoItemControl";
-            this.Size = new System.Drawing.Size(339, 41);
+            this.Size = new System.Drawing.Size(367, 41);
             ((System.ComponentModel.ISupportInitialize)(this.CompletedCheckEdit.Properties)).EndInit();
             this.ResumeLayout(false);
 
