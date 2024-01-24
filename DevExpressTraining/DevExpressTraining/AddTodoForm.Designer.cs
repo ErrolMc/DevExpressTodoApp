@@ -30,13 +30,13 @@ namespace DevExpressTraining
         private void InitializeComponent()
         {
             this.HeaderEdit = new DevExpress.XtraEditors.TextEdit();
-            this.BodyEdit = new DevExpress.XtraEditors.MemoEdit();
+            this.NotesEdit = new DevExpress.XtraEditors.MemoEdit();
             this.HeaderLabel = new DevExpress.XtraEditors.LabelControl();
-            this.BodyLabel = new DevExpress.XtraEditors.LabelControl();
+            this.NotesLabel = new DevExpress.XtraEditors.LabelControl();
             this.AddTodoButton = new DevExpress.XtraEditors.SimpleButton();
             this.CancelTodoButton = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.HeaderEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BodyEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NotesEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // HeaderEdit
@@ -45,14 +45,13 @@ namespace DevExpressTraining
             this.HeaderEdit.Name = "HeaderEdit";
             this.HeaderEdit.Size = new System.Drawing.Size(339, 20);
             this.HeaderEdit.TabIndex = 0;
-            this.HeaderEdit.EditValueChanged += new System.EventHandler(this.textEdit1_EditValueChanged);
             // 
             // BodyEdit
             // 
-            this.BodyEdit.Location = new System.Drawing.Point(76, 77);
-            this.BodyEdit.Name = "BodyEdit";
-            this.BodyEdit.Size = new System.Drawing.Size(339, 96);
-            this.BodyEdit.TabIndex = 1;
+            this.NotesEdit.Location = new System.Drawing.Point(76, 77);
+            this.NotesEdit.Name = "NotesEdit";
+            this.NotesEdit.Size = new System.Drawing.Size(339, 96);
+            this.NotesEdit.TabIndex = 1;
             // 
             // HeaderLabel
             // 
@@ -64,11 +63,11 @@ namespace DevExpressTraining
             // 
             // BodyLabel
             // 
-            this.BodyLabel.Location = new System.Drawing.Point(23, 78);
-            this.BodyLabel.Name = "BodyLabel";
-            this.BodyLabel.Size = new System.Drawing.Size(28, 13);
-            this.BodyLabel.TabIndex = 3;
-            this.BodyLabel.Text = "Body:";
+            this.NotesLabel.Location = new System.Drawing.Point(23, 78);
+            this.NotesLabel.Name = "NotesLabel";
+            this.NotesLabel.Size = new System.Drawing.Size(28, 13);
+            this.NotesLabel.TabIndex = 3;
+            this.NotesLabel.Text = "Notes:";
             // 
             // AddTodoButton
             // 
@@ -77,6 +76,7 @@ namespace DevExpressTraining
             this.AddTodoButton.Size = new System.Drawing.Size(75, 23);
             this.AddTodoButton.TabIndex = 4;
             this.AddTodoButton.Text = "Add";
+            this.AddTodoButton.Click += new System.EventHandler(this.AddTodoButton_Click);
             // 
             // CancelTodoButton
             // 
@@ -85,6 +85,7 @@ namespace DevExpressTraining
             this.CancelTodoButton.Size = new System.Drawing.Size(75, 23);
             this.CancelTodoButton.TabIndex = 5;
             this.CancelTodoButton.Text = "Cancel";
+            this.CancelTodoButton.Click += new System.EventHandler(this.CancelTodoButton_Click);
             // 
             // AddTodoForm
             // 
@@ -93,14 +94,14 @@ namespace DevExpressTraining
             this.ClientSize = new System.Drawing.Size(438, 240);
             this.Controls.Add(this.CancelTodoButton);
             this.Controls.Add(this.AddTodoButton);
-            this.Controls.Add(this.BodyLabel);
+            this.Controls.Add(this.NotesLabel);
             this.Controls.Add(this.HeaderLabel);
-            this.Controls.Add(this.BodyEdit);
+            this.Controls.Add(this.NotesEdit);
             this.Controls.Add(this.HeaderEdit);
             this.Name = "AddTodoForm";
-            this.Text = "AddTodoForm";
+            this.Text = "Add New Todo";
             ((System.ComponentModel.ISupportInitialize)(this.HeaderEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.BodyEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.NotesEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,9 +110,9 @@ namespace DevExpressTraining
         #endregion
 
         private DevExpress.XtraEditors.TextEdit HeaderEdit;
-        private DevExpress.XtraEditors.MemoEdit BodyEdit;
+        private DevExpress.XtraEditors.MemoEdit NotesEdit;
         private DevExpress.XtraEditors.LabelControl HeaderLabel;
-        private DevExpress.XtraEditors.LabelControl BodyLabel;
+        private DevExpress.XtraEditors.LabelControl NotesLabel;
         private DevExpress.XtraEditors.SimpleButton AddTodoButton;
         private DevExpress.XtraEditors.SimpleButton CancelTodoButton;
     }

@@ -23,7 +23,34 @@ namespace DevExpressTraining
 
         private void AddTodoButton_OnClick(object sender, EventArgs e)
         {
+            using (AddTodoForm addForm = new AddTodoForm())
+            {
+                DialogResult result = addForm.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    string header = addForm.HeaderText;
+                    string notes = addForm.NotesText;
 
+                    TodoItemControl todoItem = new TodoItemControl
+                    {
+                        Label = header
+                    };
+
+                    todoItem.Width = TodoLayoutPanel.Width - TodoLayoutPanel.Margin.Horizontal;
+                    todoItem.DeleteClicked += TodoItem_DeleteClicked;
+                    TodoLayoutPanel.Controls.Add(todoItem);
+                }
+            }
+        }
+
+        private void TodoItem_DeleteClicked(object sender, EventArgs e)
+        {
+            TodoItemControl itemToRemove = sender as TodoItemControl;
+            if (itemToRemove != null)
+            {
+                TodoLayoutPanel.Controls.Remove(itemToRemove);
+                itemToRemove.Dispose();
+            }
         }
     }
 }
