@@ -39,6 +39,9 @@
     <Reference Include="DevExpress.Sparkline.v19.1.Core" />
     <Reference Include="DevExpress.XtraEditors.v19.1" />
     <Reference Include="DevExpress.Printing.v19.1.Core" />
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -57,6 +60,7 @@
     <Compile Include="AddTodoForm.Designer.cs">
       <DependentUpon>AddTodoForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="JSONInterface.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -65,12 +69,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TodoItem.cs" />
     <Compile Include="TodoItemControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="TodoItemControl.Designer.cs">
       <DependentUpon>TodoItemControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="TodoItemList.cs" />
     <EmbeddedResource Include="AddTodoForm.resx">
       <DependentUpon>AddTodoForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,6 +97,7 @@
       <DependentUpon>TodoItemControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

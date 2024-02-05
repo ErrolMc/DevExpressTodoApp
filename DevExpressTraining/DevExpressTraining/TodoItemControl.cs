@@ -26,6 +26,8 @@ namespace DevExpressTraining
             set { LabelText.Text = value; }
         }
 
+        public TodoItem TodoItem { get; set; }
+
         private void CompletedCheckEdit_CheckedChanged(object sender, EventArgs e)
         {
 
