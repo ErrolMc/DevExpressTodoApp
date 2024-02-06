@@ -12,6 +12,7 @@ namespace DevExpressTraining
     public partial class MainForm : DevExpress.XtraEditors.XtraForm
     {
         private TodoItemList todoItemList;
+        private CompletedSpacerControl completedSpacerControl;
 
         public MainForm()
         {
@@ -22,9 +23,9 @@ namespace DevExpressTraining
         {
             todoItemList = JSONInterface.GetSavedTodoItems();
             foreach (TodoItem todoItem in todoItemList.todoItems)
-            {
-                AddTodoItemControl(todoItem);
-            }
+                AddTodoItemControl(todoItem, false);
+
+            CreateCompletedSpacer();
         }
 
         private void AddTodoButton_OnClick(object sender, EventArgs e)
@@ -38,24 +39,50 @@ namespace DevExpressTraining
                     string notes = addForm.NotesText;
 
                     TodoItem todoItem = todoItemList.AddTodoItem(header, notes);
-                    AddTodoItemControl(todoItem);
+                    AddTodoItemControl(todoItem, false, todoItemList.todoItems.Count);
 
                     JSONInterface.SaveTodoItems(todoItemList);
                 }
             }
         }
 
-        private void AddTodoItemControl(TodoItem todoItem)
+        private void AddTodoItemControl(TodoItem todoItem, bool completed, int index = -1)
         {
             TodoItemControl todoItemControl = new TodoItemControl
             {
                 Label = todoItem.Header,
                 TodoItem = todoItem,
+                Completed = completed,
             };
 
             todoItemControl.Width = TodoLayoutPanel.Width;
             todoItemControl.DeleteClicked += TodoItem_DeleteClicked;
+            todoItemControl.CheckedChanged += TodoItem_CheckedChanged;
             TodoLayoutPanel.Controls.Add(todoItemControl);
+
+            if (index != -1)
+                TodoLayoutPanel.Controls.SetChildIndex(todoItemControl, todoItemList.todoItems.Count - 1);
+        }
+
+        private void CreateCompletedSpacer()
+        {
+            void AddSpacer()
+            {
+                Panel spacer = new Panel();
+                spacer.Height = 10;
+                spacer.Width = TodoLayoutPanel.Width;
+                spacer.BackColor = Color.Transparent;
+                TodoLayoutPanel.Controls.Add(spacer);
+            }
+
+            AddSpacer();
+            
+            completedSpacerControl = new CompletedSpacerControl();
+            TodoLayoutPanel.Controls.Add(completedSpacerControl);
+            completedSpacerControl.OnToggleExpanded += OnCompletedExpandedToggle;
+            completedSpacerControl.SetCompletedNum(todoItemList.completedItems.Count);
+
+            AddSpacer();
         }
 
         private void TodoItem_DeleteClicked(object sender, EventArgs e)
@@ -63,11 +90,75 @@ namespace DevExpressTraining
             TodoItemControl itemToRemove = sender as TodoItemControl;
             if (itemToRemove != null)
             {
-                todoItemList.RemoveTodoItem(itemToRemove.TodoItem);
+                TodoItem todoItem = itemToRemove.TodoItem;
+                if (todoItem.Completed)
+                {
+                    todoItemList.RemoveCompletedItem(todoItem);
+                    completedSpacerControl.SetCompletedNum(todoItemList.completedItems.Count);
+                }
+                else
+                    todoItemList.RemoveTodoItem(todoItem);
+
                 JSONInterface.SaveTodoItems(todoItemList);
 
                 TodoLayoutPanel.Controls.Remove(itemToRemove);
                 itemToRemove.Dispose();
+            }
+        }
+
+        private void TodoItem_CheckedChanged(object sender, EventArgs e)
+        {
+            TodoItemControl itemControl = sender as TodoItemControl;
+            if (itemControl != null)
+            {
+                TodoItem todoItem = itemControl.TodoItem;
+
+                if (todoItem.Completed)
+                {
+                    todoItemList.RemoveTodoItem(todoItem);
+                    todoItemList.AddCompletedItem(todoItem);
+                    TodoLayoutPanel.Controls.SetChildIndex(itemControl, TodoLayoutPanel.Controls.Count - 1);
+                }
+                else
+                {
+                    todoItemList.RemoveCompletedItem(todoItem);
+                    todoItemList.AddTodoItem(todoItem);
+                    TodoLayoutPanel.Controls.SetChildIndex(itemControl, todoItemList.todoItems.Count - 1);
+                }
+
+                completedSpacerControl.SetCompletedNum(todoItemList.completedItems.Count);
+                JSONInterface.SaveTodoItems(todoItemList);
+            }
+        }
+
+        private void OnCompletedExpandedToggle(object sender, EventArgs e)
+        {
+            bool expanded = completedSpacerControl.IsExpanded;
+
+            if (expanded)
+            {
+                foreach (TodoItem todoItem in todoItemList.completedItems)
+                {
+                    AddTodoItemControl(todoItem, true);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < TodoLayoutPanel.Controls.Count; i++)
+                {
+                    Control control = TodoLayoutPanel.Controls[i];
+                    TodoItemControl itemControl = control as TodoItemControl;
+                    if (itemControl != null)
+                    {
+                        TodoItem todoItem = itemControl.TodoItem;
+                        if (todoItem.Completed)
+                        {
+                            TodoLayoutPanel.Controls.Remove(control);
+                            control.Dispose();
+                            i--;
+                        }
+                    }
+                }
             }
         }
     }
