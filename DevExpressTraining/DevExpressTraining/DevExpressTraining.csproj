@@ -39,6 +39,7 @@
     <Reference Include="DevExpress.Sparkline.v19.1.Core" />
     <Reference Include="DevExpress.XtraEditors.v19.1" />
     <Reference Include="DevExpress.Printing.v19.1.Core" />
+    <Reference Include="DevExpress.XtraLayout.v19.1, Version=19.1.7.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -65,6 +66,9 @@
     </Compile>
     <Compile Include="CompletedSpacerControl.Designer.cs">
       <DependentUpon>CompletedSpacerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CustomFlowLayoutPanel.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="JSONInterface.cs" />
     <Compile Include="MainForm.cs">

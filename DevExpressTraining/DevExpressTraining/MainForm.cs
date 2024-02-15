@@ -8,6 +8,7 @@ namespace DevExpressTraining
     {
         private TodoItemList todoItemList;
         private CompletedSpacerControl completedSpacerControl;
+        private const int CONTROL_MARGIN = 10;
 
         public MainForm()
         {
@@ -50,7 +51,7 @@ namespace DevExpressTraining
                 Completed = completed,
             };
 
-            todoItemControl.Width = TodoLayoutPanel.Width;
+            todoItemControl.Width = TodoLayoutPanel.Width - CONTROL_MARGIN;
             todoItemControl.DeleteClicked += TodoItem_DeleteClicked;
             todoItemControl.CheckedChanged += TodoItem_CheckedChanged;
             TodoLayoutPanel.Controls.Add(todoItemControl);
@@ -65,7 +66,7 @@ namespace DevExpressTraining
             {
                 Panel spacer = new Panel();
                 spacer.Height = 10;
-                spacer.Width = TodoLayoutPanel.Width;
+                spacer.Width = TodoLayoutPanel.Width - CONTROL_MARGIN;
                 spacer.BackColor = Color.Transparent;
                 TodoLayoutPanel.Controls.Add(spacer);
             }

@@ -32,7 +32,7 @@ namespace DevExpressTraining
             this.components = new System.ComponentModel.Container();
             this.AddTodoButton = new DevExpress.XtraEditors.SimpleButton();
             this.BehaviorManager = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
-            this.TodoLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.TodoLayoutPanel = new CustomFlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.BehaviorManager)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,9 +47,10 @@ namespace DevExpressTraining
             // 
             // TodoLayoutPanel
             // 
+            this.TodoLayoutPanel.AutoScroll = true;
             this.TodoLayoutPanel.Location = new System.Drawing.Point(16, 51);
             this.TodoLayoutPanel.Name = "TodoLayoutPanel";
-            this.TodoLayoutPanel.Size = new System.Drawing.Size(284, 456);
+            this.TodoLayoutPanel.Size = new System.Drawing.Size(284, 466);
             this.TodoLayoutPanel.TabIndex = 2;
             // 
             // MainForm
@@ -77,7 +78,7 @@ namespace DevExpressTraining
         #endregion
         private DevExpress.XtraEditors.SimpleButton AddTodoButton;
         private DevExpress.Utils.Behaviors.BehaviorManager BehaviorManager;
-        private System.Windows.Forms.FlowLayoutPanel TodoLayoutPanel;
+        private CustomFlowLayoutPanel TodoLayoutPanel;
     }
 }
 
