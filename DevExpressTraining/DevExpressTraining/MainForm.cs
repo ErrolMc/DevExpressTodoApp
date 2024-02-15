@@ -113,7 +113,14 @@ namespace DevExpressTraining
                 {
                     todoItemList.RemoveTodoItem(todoItem);
                     todoItemList.AddCompletedItem(todoItem);
-                    TodoLayoutPanel.Controls.SetChildIndex(itemControl, TodoLayoutPanel.Controls.Count - 1);
+
+                    if (completedSpacerControl.IsExpanded)
+                        TodoLayoutPanel.Controls.SetChildIndex(itemControl, TodoLayoutPanel.Controls.Count - 1);
+                    else
+                    {
+                        TodoLayoutPanel.Controls.Remove(itemControl);
+                        itemControl.Dispose();
+                    }
                 }
                 else
                 {

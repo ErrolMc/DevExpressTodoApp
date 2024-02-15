@@ -50,7 +50,7 @@ namespace DevExpressTraining
             this.TodoLayoutPanel.AutoScroll = true;
             this.TodoLayoutPanel.Location = new System.Drawing.Point(16, 51);
             this.TodoLayoutPanel.Name = "TodoLayoutPanel";
-            this.TodoLayoutPanel.Size = new System.Drawing.Size(284, 466);
+            this.TodoLayoutPanel.Size = new System.Drawing.Size(288, 466);
             this.TodoLayoutPanel.TabIndex = 2;
             // 
             // MainForm
