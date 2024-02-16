@@ -86,6 +86,12 @@
     <Compile Include="TodoItemControl.Designer.cs">
       <DependentUpon>TodoItemControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="TodoItemExpandedControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TodoItemExpandedControl.Designer.cs">
+      <DependentUpon>TodoItemExpandedControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="TodoItemList.cs" />
     <EmbeddedResource Include="AddTodoForm.resx">
       <DependentUpon>AddTodoForm.cs</DependentUpon>
@@ -109,6 +115,9 @@
     </Compile>
     <EmbeddedResource Include="TodoItemControl.resx">
       <DependentUpon>TodoItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TodoItemExpandedControl.resx">
+      <DependentUpon>TodoItemExpandedControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="packages.config" />

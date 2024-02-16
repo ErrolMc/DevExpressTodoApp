@@ -37,7 +37,7 @@ namespace DevExpressTraining
                     TodoItem todoItem = todoItemList.AddTodoItem(header, notes);
                     AddTodoItemControl(todoItem, false, todoItemList.todoItems.Count);
 
-                    JSONInterface.SaveTodoItems(todoItemList);
+                    SaveTodoItems(this, EventArgs.Empty);
                 }
             }
         }
@@ -47,6 +47,7 @@ namespace DevExpressTraining
             TodoItemControl todoItemControl = new TodoItemControl
             {
                 Label = todoItem.Header,
+                Notes = todoItem.Notes,
                 TodoItem = todoItem,
                 Completed = completed,
             };
@@ -54,6 +55,7 @@ namespace DevExpressTraining
             todoItemControl.Width = TodoLayoutPanel.Width - CONTROL_MARGIN;
             todoItemControl.DeleteClicked += TodoItem_DeleteClicked;
             todoItemControl.CheckedChanged += TodoItem_CheckedChanged;
+            todoItemControl.SaveTodoItems += SaveTodoItems;
             TodoLayoutPanel.Controls.Add(todoItemControl);
 
             if (index != -1)
@@ -95,7 +97,7 @@ namespace DevExpressTraining
                 else
                     todoItemList.RemoveTodoItem(todoItem);
 
-                JSONInterface.SaveTodoItems(todoItemList);
+                SaveTodoItems(this, EventArgs.Empty);
 
                 TodoLayoutPanel.Controls.Remove(itemToRemove);
                 itemToRemove.Dispose();
@@ -130,7 +132,7 @@ namespace DevExpressTraining
                 }
 
                 completedSpacerControl.SetCompletedNum(todoItemList.completedItems.Count);
-                JSONInterface.SaveTodoItems(todoItemList);
+                SaveTodoItems(this, EventArgs.Empty);
             }
         }
 
@@ -163,6 +165,11 @@ namespace DevExpressTraining
                     }
                 }
             }
+        }
+
+        private void SaveTodoItems(object sender, EventArgs e)
+        {
+            JSONInterface.SaveTodoItems(todoItemList);
         }
     }
 }

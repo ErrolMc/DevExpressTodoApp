@@ -32,6 +32,7 @@ namespace DevExpressTraining
             this.LabelText = new DevExpress.XtraEditors.LabelControl();
             this.DeleteButton = new DevExpress.XtraEditors.SimpleButton();
             this.CompletedCheckEdit = new DevExpress.XtraEditors.CheckEdit();
+            this.NotesControl = new DevExpressTraining.TodoItemExpandedControl();
             ((System.ComponentModel.ISupportInitialize)(this.CompletedCheckEdit.Properties)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,6 +51,7 @@ namespace DevExpressTraining
             this.LabelText.Size = new System.Drawing.Size(280, 17);
             this.LabelText.TabIndex = 0;
             this.LabelText.Text = "blank";
+            this.LabelText.Enabled = false;
             // 
             // DeleteButton
             // 
@@ -70,19 +72,32 @@ namespace DevExpressTraining
             this.CompletedCheckEdit.TabIndex = 2;
             this.CompletedCheckEdit.CheckedChanged += new System.EventHandler(this.CompletedCheckEdit_CheckedChanged);
             // 
+            // NotesControl
+            // 
+            this.NotesControl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.NotesControl.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.NotesControl.Appearance.Options.UseBackColor = true;
+            this.NotesControl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.NotesControl.Location = new System.Drawing.Point(37, 38);
+            this.NotesControl.Name = "NotesControl";
+            this.NotesControl.Size = new System.Drawing.Size(318, 129);
+            this.NotesControl.TabIndex = 3;
+            // 
             // TodoItemControl
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.Appearance.Options.UseBackColor = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.NotesControl);
             this.Controls.Add(this.CompletedCheckEdit);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.LabelText);
             this.LookAndFeel.SkinName = "Visual Studio 2013 Dark";
             this.LookAndFeel.UseDefaultLookAndFeel = false;
             this.Name = "TodoItemControl";
-            this.Size = new System.Drawing.Size(367, 41);
+            this.Size = new System.Drawing.Size(367, 177);
             ((System.ComponentModel.ISupportInitialize)(this.CompletedCheckEdit.Properties)).EndInit();
             this.ResumeLayout(false);
 
@@ -93,5 +108,6 @@ namespace DevExpressTraining
         private DevExpress.XtraEditors.LabelControl LabelText;
         private DevExpress.XtraEditors.SimpleButton DeleteButton;
         private DevExpress.XtraEditors.CheckEdit CompletedCheckEdit;
+        private TodoItemExpandedControl NotesControl;
     }
 }
